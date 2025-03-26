@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 
 const Words = () => {
   const words = [
-    { id: 1, word: "React", meaning: "A JavaScript library for building UI" },
-    { id: 2, word: "Component", meaning: "Reusable UI piece in React" },
-    { id: 3, word: "State", meaning: "Data that changes in a component" },
-  ];
+      { id: 1, word: "الأهرامات", meaning: "إحدى عجائب الدنيا السبع وتقع في الجيزة" },
+      { id: 2, word: "النيل", meaning: "أطول نهر في العالم ويمر بمصر" },
+      { id: 3, word: "القاهرة", meaning: "عاصمة مصر وأكبر مدنها" },
+      { id: 4, word: "الإسكندرية", meaning: "مدينة ساحلية شهيرة وتضم مكتبة الإسكندرية" },
+      { id: 5, word: "السد العالي", meaning: "سد مقام على نهر النيل في أسوان لتوليد الكهرباء" },
+    ];
   const [matchedPairs, setMatchedPairs] = useState([]);
   const [score, setScore] = useState(0);
   const [timeLeft, setTimeLeft] = useState(60); // مؤقت 60 ثانية
