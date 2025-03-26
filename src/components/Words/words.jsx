@@ -50,43 +50,46 @@ const Words = () => {
 
   return (
     <>
-    
-      <div className="mx-auto text-center  w-[80%] text-xl font-medium text-gray-700 p-3 m-3 rounded-md border-[2px] border-solid border-gray-200">
-      <div className="flex justify-between w-full max-w-md mb-4 text-lg font-bold">
-        <span>⏳ الوقت: {timeLeft}s</span>
-        <span>⭐ النقاط: {score}</span>
-      </div>
-        {words.map((word) => (
-          <div className="" key={word.id}>
-            
-            <div className="grid grid-cols-2  ">
-            <div className="bg-blue-50 flex flex-col  align-middle justify-center rounded-md m-2">
-            <ul className="">
-              <li className="my-2 p-2" onDrop={(e) => handleDrop(e, word.meaning)}
-              onDragOver={(e) => e.preventDefault()}>
+    <div className="flex justify-center items-center min-h-screen">
+  <div className="mx-auto text-center w-[80%] text-xl font-medium text-gray-700 p-3 m-3 rounded-md border-[2px] border-solid border-gray-200">
+    <div className="mx-auto flex justify-between w-full max-w-md mb-4 text-lg font-bold">
+      <span> ⏳ {timeLeft}  الوقت</span>
+      <span>⭐ النقاط: {score}</span>
+    </div>
+    {words.map((word) => (
+      <div key={word.id}>
+        <div className="grid grid-cols-2">
+          <div className="bg-blue-50 flex flex-col align-middle justify-center rounded-md m-2">
+            <ul>
+              <li
+                className="my-2 p-2"
+                onDrop={(e) => handleDrop(e, word.meaning)}
+                onDragOver={(e) => e.preventDefault()}
+              >
                 {word.meaning}
               </li>
             </ul>
-            </div>
-            <div className="bg-red-50 rounded-md m-2 cursor-grabbing flex flex-col  align-middle justify-center  " draggable onDragStart={(e) => handleDragStart(e, word)}>
-            <ul className=" ">
-              <li className="my-2 p-2 " >
-                {word.word}
-              </li>
-            </ul>
-            </div>
-            
-            </div>
-            
-            
           </div>
-        ))}
-        {gameOver && (
-        <div className="mt-4 text-red-500 font-bold text-xl">
-          ⏰ انتهى الوقت! نقاطك: {score} ⭐
+          <div
+            className="bg-red-50 rounded-md m-2 cursor-grabbing flex flex-col align-middle justify-center"
+            draggable
+            onDragStart={(e) => handleDragStart(e, word)}
+          >
+            <ul>
+              <li className="my-2 p-2">{word.word}</li>
+            </ul>
+          </div>
         </div>
-      )}
       </div>
+    ))}
+    {gameOver && (
+      <div className="mt-4 text-red-500 font-bold text-xl">
+        ⏰ انتهى الوقت! نقاطك: {score} ⭐
+      </div>
+    )}
+  </div>
+</div>
+
     </>
   );
 };
